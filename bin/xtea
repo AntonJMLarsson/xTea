@@ -190,14 +190,14 @@ def gnrt_calling_command(iclip_c, iclip_rp, idisc_c, iflt_clip, iflt_disc, ncore
     ####
     sf_post_filter = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --rtype {0} -p ${{TMP_CNS}} " \
                      "-n {1} -i ${{PREFIX}}\"candidate_disc_filtered_cns2.txt\" " \
-                     "-a ${{ANNOTATION1}} {2} {3}" \
+                     "-a ${{ANNOTATION1}} {2} {3} " \
                      "-o ${{PREFIX}}\"candidate_disc_filtered_cns_post_filtering.txt\"\n".format(i_rep_type, ncores,
                                                                                                  s_tumor, s_hard_cut)
 ####
     if b_mosaic is True:
         sf_post_filter = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --postFmosaic --rtype {0} -p ${{TMP_CNS}} " \
                          "-n {1} -i ${{PREFIX}}\"candidate_disc_filtered_cns2.txt\" " \
-                         "-a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}}" \
+                         "-a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}} " \
                          "-o ${{PREFIX}}\"candidate_disc_filtered_cns_post_filtering.txt\"\n".format(i_rep_type, ncores, s_tumor)
 
     sf_post_filter_hc = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --rtype {0} -p ${{TMP_CNS}} -n {1} " \
@@ -207,7 +207,7 @@ def gnrt_calling_command(iclip_c, iclip_rp, idisc_c, iflt_clip, iflt_disc, ncore
         .format(i_rep_type, ncores, s_tumor, s_hard_cut)
     if b_mosaic is True:
         sf_post_filter_hc = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --postFmosaic --rtype {0} -p ${{TMP_CNS}} -n {1} " \
-                            "-i ${{PREFIX}}\"candidate_disc_filtered_cns2.txt.high_confident\" -a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}}" \
+                            "-i ${{PREFIX}}\"candidate_disc_filtered_cns2.txt.high_confident\" -a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}} " \
                             "-o ${{PREFIX}}\"candidate_disc_filtered_cns.txt.high_confident.post_filtering.txt\"\n" \
             .format(i_rep_type, ncores, s_tumor)
 
@@ -476,12 +476,12 @@ def gnrt_calling_command_non_RNA(iclip_c, iclip_rp, idisc_c, iflt_clip, iflt_dis
 
     sf_post_filter = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --rtype {0} -p ${{TMP_CNS}} " \
                      "-n {1} -i ${{PREFIX}}\"candidate_disc_filtered_cns.txt\" " \
-                     "-a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}}" \
+                     "-a ${{ANNOTATION1}} {2} --blacklist ${{BLACK_LIST}} " \
                      "-o ${{PREFIX}}\"candidate_disc_filtered_cns_post_filtering.txt\"\n".format(i_rep_type, ncores, s_hard_cut)
     if b_mosaic is True:
         sf_post_filter = "python ${{XTEA_PATH}}\"x_TEA_main.py\" --postF --postFmosaic --rtype {0} -p ${{TMP_CNS}} " \
                          "-n {1} -i ${{PREFIX}}\"candidate_disc_filtered_cns.txt\" " \
-                         "-a ${{ANNOTATION1}} --blacklist ${{BLACK_LIST}}" \
+                         "-a ${{ANNOTATION1}} --blacklist ${{BLACK_LIST}} " \
                          "-o ${{PREFIX}}\"candidate_disc_filtered_cns_post_filtering.txt\"\n".format(i_rep_type, ncores)
     ####
     ####

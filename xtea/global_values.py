@@ -100,6 +100,11 @@ IS_CALL_SVA=False
 def turn_on_sva():
     global IS_CALL_SVA
     IS_CALL_SVA=True
+
+IS_WORKING_ON_WES=False
+def set_working_on_WES():
+    global IS_WORKING_ON_WES
+    IS_WORKING_ON_WES=True
 SVA_ANNOTATION_EXTND=200
 
 ####
